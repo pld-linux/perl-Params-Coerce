@@ -6,8 +6,8 @@
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Params
 %define	pnam	Coerce
-Summary:	Params::Coerce - Allows your classes to do coercion of parameters
-Summary(pl.UTF-8):	Params::Coerce - umożliwia klasom na wykonanie jawnej kowersji typów
+Summary:	Params::Coerce - allows your classes to do coercion of parameters
+Summary(pl.UTF-8):	Params::Coerce - umożliwienie klasom jawnej kowersji typów parametrów
 Name:		perl-Params-Coerce
 Version:	0.14
 Release:	1
@@ -29,29 +29,25 @@ A big part of good API design is that we should be able to be flexible
 in the ways that we take parameters.
 
 Params::Coerce attempts to encourage this, by making it easier to take
-a variety of different arguments, while adding negligable additional
+a variety of different arguments, while adding negligible additional
 complexity to your code.
 
-"Coercion" in computing terms generally referse to "implicit type
+"Coercion" in computing terms generally refers to "implicit type
 conversion". This is where data and object are converted from one type
 to another behind the scenes, and you just just magically get what you
 need.
 
-The overload pragma, and its string overloading is the form of
-coercion you are most likely to have encountered in Perl programming.
-In this case, your object is automatically (within perl itself)
-coerced into a string.
-
-Params::Coerce is intended for higher-order coercion between various
-types of different objects, for use mainly in subroutine and (mostly)
-method parameters, particularly on external APIs.
-
 %description -l pl.UTF-8
 Dużą częścią dobrego projektu API jest możliwość elastycznego
-przekazywania parametór.
+przekazywania parametrów.
 
-Params::Coerce próbuję zachęcić do tego poprzez ułatwianie
-przyjmowania różnych argumentów.
+Params::Coerce próbuje zachęcić do tego poprzez ułatwianie
+przyjmowania różnych argumentów przy zaniedbywalnie małej komplikacji
+kodu.
+
+"Coercion" oznacza "domyślną konwersję typów". Dotyczy to sytuacji,
+kiedy dane i obiekty są w tle konwertowane z jednego typu do innego i
+magicznie otrzymuje się to, co potrzeba.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -75,6 +71,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Changes README
-%{perl_vendorlib}/Params/*.pm
-#%dir %{perl_vendorlib}/Params/Coerce
-%{_mandir}/man3/*
+%{perl_vendorlib}/Params/Coerce.pm
+%{_mandir}/man3/Params::Coerce.3pm*
