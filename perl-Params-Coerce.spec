@@ -1,6 +1,5 @@
 #
 # Conditional build:
-%bcond_without	autodeps	# don't BR packages needed only for resolving deps
 %bcond_without	tests		# do not perform "make test"
 #
 %define	pdir	Params
@@ -8,17 +7,20 @@
 Summary:	Params::Coerce - allows your classes to do coercion of parameters
 Summary(pl.UTF-8):	Params::Coerce - umożliwienie klasom jawnej kowersji typów parametrów
 Name:		perl-Params-Coerce
-Version:	0.14
+Version:	0.15
 Release:	1
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/Params/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	a8439ea6777c9156424ef6dd74c83945
-URL:		http://search.cpan.org/dist/Params-Coerce/
+# Source0-md5:	0a92389e31dca804d8acbe29fbdb99e6
+URL:		https://metacpan.org/release/Params-Coerce
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with autodeps} || %{with tests}
+BuildRequires:	rpmbuild(macros) >= 1.745
+%if %{with tests}
 BuildRequires:	perl-Params-Util >= 0.05
+BuildRequires:	perl-Scalar-List-Utils >= 1.11
+BuildRequires:	perl-Test-Simple >= 0.47
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
